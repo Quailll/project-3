@@ -20,7 +20,7 @@ module.exports = {
       .catch((err)=> {
         return res.status(500).json(err);
       })
-  },
+  },  
   createUser(req, res){
     User.create(req.body){
       .then((userData)=> {
