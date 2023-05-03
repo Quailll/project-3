@@ -1,0 +1,30 @@
+#headerEl {
+  text-align: center;
+}
+
+#page-container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#footers {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+.imgEl {
+  width: 10%; 
+}
+
+ul{
+  list-style: none;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+}
