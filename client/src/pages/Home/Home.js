@@ -1,14 +1,19 @@
-import React from "react";
-const trendingArray = [];
+import React, { useState, useEffect } from "react";
+
 require("dotenv").config();
 
-function Home() {
+export default function Home() {
   const api = process.env.apiKey;
-  const fetchTrending = async () => {
-    const apiData = await fetch(
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch(
       `https://api.themoviedb.org/3/trending/movie/week?${api}`
-    );
-  };
+    )
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <>
       <div>
@@ -19,11 +24,7 @@ function Home() {
         <ul>
           <div className="">
             <li>
-              <img
-                className="imgEl"
-                src="https://lumiere-a.akamaihd.net/v1/images/p_disneymovies_avatarthewayofwater_1710_b7d39b03.jpeg?region=0%2C0%2C540%2C810"
-              ></img>
-              <a href="#">Avatar: Way of the Water</a>
+              {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : "Loading..."}
             </li>
           </div>
         </ul>
@@ -33,4 +34,4 @@ function Home() {
   );
 }
 
-export default Home;
+
