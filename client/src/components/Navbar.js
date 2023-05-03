@@ -6,6 +6,8 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { Link } from "react-router-dom";
+let navArray = ["Home", "Favorites", "WatchList", "Reviews", "Login", "Logout"];
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -31,18 +33,15 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Favorite", "Watch List", "Reviews", "Login", "Logout"].map(
-          (text, index) => (
-            <ListItem key={text} disablePadding>
+        {navArray.map((text, index) => (
+          <Link to={`/${text.trim(" ").toLocaleLowerCase()}`} key={text}>
+            <ListItem disablePadding>
               <ListItemButton>
-                {/* <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon> */}
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
-          )
-        )}
+          </Link>
+        ))}
       </List>
     </Box>
   );

@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-require("dotenv").config();
-
 export default function Home() {
-  const api = process.env.apiKey;
-  const [data, setData] = useState(null);
+  const [moviedet, setMoviedet] = useState([]);
+
+  const fetchTrending = async () => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=06d957d483298391d0b324df8b069c4c`
+    );
+    const movieDetail = await data.json();
+    setMoviedet(movieDetail.results);
+  };
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/trending/movie/week?${api}`
-    )
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => console.error(error));
+    fetchTrending();
   }, []);
+
   return (
     <>
       <div>
@@ -22,16 +23,21 @@ export default function Home() {
 
       <div>
         <ul>
-          <div className="">
-            <li>
-              {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : "Loading..."}
-            </li>
-          </div>
+          {moviedet.map((movie) => (
+            <div key={movie.id}>
+              <li>
+                <img
+                  src={
+                    "https://image.tmdb.org/t/p/original/" + movie.backdrop_path
+                  }
+                  alt=""
+                />
+                <p>{movie.title}</p>
+              </li>
+            </div>
+          ))}
         </ul>
       </div>
-      <div>random movies</div>
     </>
   );
 }
-
-
