@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Review } = require("../models");
 const { signToken } = require("../utils/auth.js");
 
 const resolvers = {
@@ -33,7 +33,22 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    createReview: async (parent, { movieId, rating, comment }, context) => {
+    if (!context.user) {
+      throw new AuthenticationError("You need to be logged in to create a review!");
+    }
+    const review = await Review.create({ movieId, rating, comment, userId: context.user._id });
+
+    await User.findByIdAndUpdate(context.user._id, { $push: { reviews: review._id } });
+
+    return review;
   },
+  removeReview: async ( parent, { reviewId }, context) => {
+    if (!context.user) {
+      throw new AuthenticationError("You need to be logged in to delete a review!");
+    }
+    const review = await Review.findOneAndDelete({reviewId})
+  }
 };
 
 module.exports = resolvers;
