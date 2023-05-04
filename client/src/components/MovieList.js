@@ -18,28 +18,38 @@ export default function MovieList({ searchValue }) {
 
   return (
     <div>
-      <div>
-        <h2>Searched Movies</h2>
-      </div>
-      {moviedet.map((movie) => (
-        <div key={movie.id}>
-          <div>
-            <a href={`/movie/${movie.id}`}>
-              {movie.poster_path === null ? (
-                <img scr="https://raw.githubusercontent.com/tushar-2223/BlueBird-Movies/main/src/assets/images/no-image.jpg" />
-              ) : (
-                <img
-                  src={
-                    "https://image.tmdb.org/t/p/original/" + movie.poster_path
-                  }
-                  alt={movie.title}
-                />
-              )}
-            </a>
-            <p>{movie.title}</p>
-          </div>
+      {!searchValue ? (
+        ""
+      ) : (
+        <div>
+          <h2>Searched Movies</h2>
         </div>
-      ))}
+      )}
+      <div>
+        {moviedet.map((movie) => (
+          <div key={movie.id}>
+            <div>
+              <a href={`/movie/${movie.id}`}>
+                {movie.poster_path ? (
+                  <img
+                    className="image"
+                    src={
+                      "https://image.tmdb.org/t/p/original/" + movie.poster_path
+                    }
+                    alt={movie.title}
+                  />
+                ) : (
+                  <img
+                    src="https://media.istockphoto.com/id/1208666888/vector/marquee-and-curtain-background.jpg?s=612x612&w=0&k=20&c=VyNG1C6kfoOoH3W7cNNMmyNAlAiLuuqoQWTdDLAvA14="
+                    alt={movie.title}
+                  />
+                )}
+              </a>
+              <p>{movie.title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
