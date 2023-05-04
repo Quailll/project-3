@@ -13,6 +13,7 @@ const typeDefs = gql`
     title: String
     body: String
     rating: Int
+    author: ID
   }
 
   type Auth {
@@ -27,8 +28,8 @@ const typeDefs = gql`
   type Mutation {
     register(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addReview(title: String!, body: String!, rating: Int!): Auth
-    deleteReview(title: String!, body: String!, rating: Int!): Auth
+    createReview(title: String!, rating: Int!, body: String!): Review
+    removeReview(reviewId: ID!): Review
   }
 `;
 
