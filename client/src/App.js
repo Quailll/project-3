@@ -13,10 +13,10 @@ import Register from "./pages/Register";
 import Favorites from "./pages/Favorites";
 import Reviews from "./pages/Reviews";
 import WatchList from "./pages/watchList";
+import Movie from "./pages/Movie";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Search from "./components/Search";
 import "./app.css";
 
 const httpLink = createHttpLink({
@@ -45,7 +45,6 @@ function App() {
         <div>
           <Header></Header>
           <Navbar></Navbar>
-          <Search></Search>
         </div>
         <div id="page-container">
           <Routes>
@@ -55,6 +54,7 @@ function App() {
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/watchlist" element={<WatchList />} />
+            <Route path="/movie/${movie.id}" element={<Movie />} />
           </Routes>
           <Footer />
         </div>
