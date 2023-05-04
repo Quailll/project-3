@@ -25,3 +25,20 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const CREATE_REVIEW = gql`
+  mutation createReview($title: String!, $body: String!, $rating: Float!) {
+    createReview(title: $title, body: $body, rating: $rating) {
+      _id
+      title
+      body
+      rating
+      author {
+        _id
+        name
+        email
+      }
+      createdAt
+    }
+  }
+`;
