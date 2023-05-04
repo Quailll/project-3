@@ -15,3 +15,25 @@ li {
   display: flex;
   flex-direction: column;
 }
+
+.trending-container {
+  
+}
+
+.trending-card{
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+
+}
+
+.trending-card::-webkit-scrollbar {
+  display: none;
+}
+
+.trending {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100px;
+  margin-right: 10px;
+}
