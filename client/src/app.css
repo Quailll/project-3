@@ -17,13 +17,14 @@ li {
 }
 
 .trending-container {
-  
+
 }
 
 .trending-card{
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
+  height: 400px;
 
 }
 
@@ -33,9 +34,19 @@ li {
 
 .trending {
   object-fit: contain;
-  width: 100%;
-  max-height: 700px;
+  height: 100%;
   margin-right: 10px;
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.movie-list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-list-image {
+  width: 400px;
 }
 
 

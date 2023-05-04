@@ -27,8 +27,8 @@ const typeDefs = gql`
   type Mutation {
     register(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addReview(title: String!, body: String!, rating: Int!): Auth
-    deleteReview(title: String!, body: String!, rating: Int!): Auth
+    createReview(title: String!, body: String!, rating: Int!): Auth
+    removeReview(title: String!, body: String!, rating: Int!): Auth
   }
 `;
 
