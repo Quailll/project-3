@@ -33,17 +33,17 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    createReview: async (parent, { movieId, rating, comment }, context) => {
+    createReview: async (parent, { title, rating, body }, context) => {
       if (!context.user) {
         throw new AuthenticationError(
           "You need to be logged in to create a review!"
         );
       }
       const review = await Review.create({
-        movieId,
+        title,
+        body,
         rating,
-        comment,
-        userId: context.user._id,
+        author: context.user._id,
       });
 
       await User.findByIdAndUpdate(context.user._id, {
