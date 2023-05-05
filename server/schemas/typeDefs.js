@@ -30,6 +30,10 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     createReview(title: String!, rating: Int!, body: String!): Review
     removeReview(reviewId: ID!): Review
+    addFavorite(movieId: ID!, title: String!, posterPath: String!): User
+    addWatchlist(movieId: ID!, title: String!, posterPath: String!): User
+    removeFavorite(id: ID!): User
+    removeWatchlist(id: ID!): User
   }
 `;
 
