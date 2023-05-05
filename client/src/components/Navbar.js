@@ -13,7 +13,7 @@ let navArray = [
   "Watch List",
   "Reviews",
   "Login",
-  "Logout",
+  "Register",
 ];
 
 export default function TemporaryDrawer() {
