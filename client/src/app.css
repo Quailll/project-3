@@ -16,6 +16,7 @@ li {
   flex-direction: column;
 }
 
+/* trending movies */
 .trending-container {
 
 }
@@ -25,11 +26,27 @@ li {
   overflow-y: hidden;
   overflow-x: scroll;
   height: 400px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 }
 
 .trending-card::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+}
+
+.trending-card::-webkit-scrollbar-track {
+  background: none;
+}
+
+.trending-card::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.trending-card::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 .trending {
@@ -38,6 +55,7 @@ li {
   margin-right: 10px;
   flex-shrink: 0;
   width: 200px;
+<<<<<<< HEAD
 }
 
 .movie-list-container {
@@ -47,6 +65,41 @@ li {
 
 .movie-list-image {
   width: 400px;
+=======
+>>>>>>> main
 }
 
+/* searched movies  */
+.movie-list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.movie-list-image {
+  width: 400px;
+}
+
+/* movie details */
+.movie-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-detail-img {
+  width: 100%;
+  max-height: 1000px;
+  overflow: hidden;
+}
+
+.movie-detail-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-detail-content {
+  text-align: center;
+  margin-top: 20px;
+}

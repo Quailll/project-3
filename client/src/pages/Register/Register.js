@@ -31,27 +31,40 @@ function Register() {
     }
   };
   return (
-    <div>
+    <div className="register-form">
       <h1>Register Page</h1>
       <form onSubmit={handleFormSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={formState.name}
-          onChange={handleInputChange}
-        />
-        <input
-          type="email"
-          name="email"
-          value={formState.email}
-          onChange={handleInputChange}
-        />
-        <input
-          type="password"
-          name="password"
-          value={formState.password}
-          onChange={handleInputChange}
-        />
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={formState.name}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={formState.email}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            value={formState.password}
+            onChange={handleInputChange}
+          />
+        </div>
+        {error && <div className="error-message">{error.message}</div>}
         <button type="submit">Register User</button>
       </form>
     </div>
