@@ -1,34 +1,41 @@
 const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const movieSchema = new mongoose.Schema({
-  title: {
+  tmdbId: {
     type: String,
     required: true
+  },
+  title: {
+    type: String,
+    required: false
   },
   release_date: {
     type: Number,
-    required: true
+    required: false
   },
   genre: {
     type: String,
-    required: true
+    required: false
   },
   director: {
     type: String,
-    required: true
+    required: false
   },
   runtime: {
     type: String,
-    required: true
+    required: false
   },
   overview: {
     type: String,
-    required: true
+    required: false
   },
   poster_path: {
     type: String,
-    required: true
+    required: false
   }
 });
 
 module.exports = mongoose.model("Movie", movieSchema);
+
+
