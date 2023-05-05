@@ -118,7 +118,7 @@ input {
   border: 1px solid #ccc;
 }
 
-.login-button {
+.login-btn {
   padding: 10px 20px;
   background-color: #0077c2;
   color: #fff;
@@ -127,6 +127,6 @@ input {
   cursor: pointer;
 }
 
-.login-button:hover {
+.login-btn:hover {
   background-color: #005ea8;
 }
