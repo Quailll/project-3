@@ -66,6 +66,7 @@ function Reviews() {
             name="rating"
             value={reviewData.rating}
             onChange={handleChange}
+            max={5}
           />
         </div>
         <button type="submit">Submit</button>
