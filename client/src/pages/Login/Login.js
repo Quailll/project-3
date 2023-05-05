@@ -25,8 +25,10 @@ function Login() {
       });
 
       Auth.login(data.login.token);
+      window.location.href = "/";
     } catch (err) {
       console.error(err);
+      alert("Login failed. Please try again");
     }
   };
 
