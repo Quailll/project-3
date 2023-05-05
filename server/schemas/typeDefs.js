@@ -47,6 +47,7 @@ const typeDefs = gql`
     createReview(title: String!, rating: Int!, body: String!): Review
     removeReview(reviewId: ID!): Review
     addFavorite(tmdbId: String!): User!
+
   }
 `;
 
