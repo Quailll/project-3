@@ -16,8 +16,17 @@ const resolvers = {
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${title}`;
       const response = await fetch(url);
       const data = await response.json();
-      return data;
-    }
+      return data.results.map((movie) => ({
+        tmdbId: movie.tmdbId,
+        title: movie.title,
+        release_date: movie.release_date,
+        genre: movie.genre,
+        director: movie.director,
+        runtime: movie.runtime,
+        overview: movie.overview,
+        poster_path: movie.poster_path,
+      }));
+    },
   },
   Mutation: {
     register: async (parent, { name, email, password }) => {
@@ -74,22 +83,30 @@ const resolvers = {
 
       return review;
     },
-    addFavorite: async (parent, { movieId }, context) => {
+    addFavorite: async (parent, { tmdbId }, context) => {
       if (!context.user) {
         throw new AuthenticationError(
           "You need to be logged to favorite a movie!"
         );
       }
 
-      const user = await User.findByIdAndUpdate(context.user._id, {
-        $addToSet: { favorites: movieId }
-      });
-      return user;
-    }
-  },
+      const API_KEY = "06d957d483298391d0b324df8b069c4c";
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${tmdbId}`;
+      const response = await fetch(url);
+      const movieData = await response.json();
 
+      if (!movieData) {
+        throw new Error(`No movie found with tmdbId ${tmdbId}`);
+      }
+
+      const { title, release_date, overview, poster_path, genre, director, runtime } = movieData;
+      const movie = await Movie.create({ tmdbId, title, releaseDate: release_date, overview, posterPath: poster_path, genre, director, runtime});
+
+      return movie;
+    },
+  },
   Movie: {
-    id: (parent) => parent.id.toString(),
+    tmdbId: (parent) => parent.tmdbId.toString(),
     title: (parent) => parent.title,
     release_date: (parent) => parent.year,
     genre: (parent) => parent.genre,

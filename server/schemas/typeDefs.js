@@ -6,7 +6,8 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
-    favorites: [ID]
+    reviews: [Review]
+    favorites: [Movie]
   }
 
   type Review {
@@ -14,12 +15,12 @@ const typeDefs = gql`
     title: String
     body: String
     rating: Int
-    author: ID
+    author: User
   }
 
   type Movie {
     _id: ID!
-    id: String!
+    tmdbId: String!
     title: String!
     release_date: Int!
     genre: String!
@@ -36,7 +37,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    getMovie(title: String!): Movie
+    getMovie(title: String!): [Movie]
   }
 
   type Mutation {
@@ -44,7 +45,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     createReview(title: String!, rating: Int!, body: String!): Review
     removeReview(reviewId: ID!): Review
-    addFavorite(movieId: ID!): User
+    addFavorite(movieId: ID!): User!
 
   }
 `;

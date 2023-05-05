@@ -26,10 +26,6 @@ li {
   overflow-y: hidden;
   overflow-x: scroll;
   height: 400px;
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 }
 
 .trending-card::-webkit-scrollbar {
@@ -55,18 +51,6 @@ li {
   margin-right: 10px;
   flex-shrink: 0;
   width: 200px;
-<<<<<<< HEAD
-}
-
-.movie-list-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.movie-list-image {
-  width: 400px;
-=======
->>>>>>> main
 }
 
 /* searched movies  */
