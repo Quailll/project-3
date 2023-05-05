@@ -6,7 +6,8 @@ const favoriteSchema = new Schema(
     ref: 'User'
   },
   movieId: {
-    type: String
+    type: String,
+    ref: 'Movie'
   },
   movieTitle: {
     type: String
