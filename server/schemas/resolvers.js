@@ -96,17 +96,17 @@ const resolvers = {
       const response = await fetch(url);
       const movieData = await response.json();
 
+
       if (!movieData) {
         throw new Error(`No movie found with tmdbId ${tmdbId}`);
       }
 
       const { title, release_date, overview, poster_path, genre, director, runtime } = movieData;
       const movie = await Movie.create({ tmdbId, title, releaseDate: release_date, overview, posterPath: poster_path, genre, director, runtime});
-      
-      return movie;
-    }
-  },
 
+      return movie;
+    },
+  },
   Movie: {
     tmdbId: (parent) => parent.tmdbId.toString(),
     title: (parent) => parent.title,

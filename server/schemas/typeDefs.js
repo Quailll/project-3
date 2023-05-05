@@ -46,7 +46,9 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     createReview(title: String!, rating: Int!, body: String!): Review
     removeReview(reviewId: ID!): Review
-    addFavorite(tmdbId: String!): User!
+
+    addFavorite(movieId: ID!): User!
+
 
   }
 `;
