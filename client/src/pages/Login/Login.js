@@ -29,23 +29,30 @@ function Login() {
       console.error(err);
     }
   };
+
   return (
-    <div>
+    <div className="login-container">
       <h1>Login Page</h1>
-      <form onSubmit={handleFormSubmit}>
+      <form className="login-form" onSubmit={handleFormSubmit}>
+        <label htmlFor="email">Email:</label>
         <input
+          id="email"
           type="email"
           name="email"
           value={formState.email}
           onChange={handleInputChange}
         />
+        <label htmlFor="password">Password:</label>
         <input
+          id="password"
           type="password"
           name="password"
           value={formState.password}
           onChange={handleInputChange}
         />
-        <button type="submit">Login User</button>
+        <button className="login-btn" type="submit">
+          Login User
+        </button>
       </form>
     </div>
   );
