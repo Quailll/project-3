@@ -14,6 +14,26 @@ export const MovieDetails = () => {
     setMoviedet(movieDetail);
   };
 
+  const handleAddFavorites = async () => {
+    const { id, poster_path, original_title } = moviedet;
+    await fetch("/movies", {
+      method: "POST",
+      body: JSON.stringify({ id, poster_path, original_title }),
+      headers: { "Content-Type": "application/json" },
+    });
+    alert("Movie added to favorites");
+  };
+
+  const handleAddWatchList = async () => {
+    const { id, poster_path, original_title } = moviedet;
+    await fetch("/movies", {
+      method: "POST",
+      body: JSON.stringify({ id, poster_path, original_title }),
+      headers: { "Content-Type": "application/json" },
+    });
+    alert("Movie added to watch list");
+  };
+
   useEffect(() => {
     fetchMovie();
   }, []);
@@ -29,6 +49,8 @@ export const MovieDetails = () => {
       <div className="movie-detail-content">
         <h2>{moviedet.original_title}</h2>
         <h3>{moviedet.release_date}</h3>
+        <button onClick={handleAddFavorites}>Add to Favorites</button>
+        <button onClick={handleAddWatchList}>Add to Watch List</button>
       </div>
       <div>
         <p>{moviedet.overview}</p>
