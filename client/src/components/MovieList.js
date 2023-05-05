@@ -25,14 +25,14 @@ export default function MovieList({ searchValue }) {
           <h2>Searched Movies</h2>
         </div>
       )}
-      <div>
+      <div className="movie-list-container">
         {moviedet.map((movie) => (
-          <div key={movie.id}>
+          <div key={movie.id} style={{ margin: "10px" }}>
             <div>
               <a href={`/movie/${movie.id}`}>
                 {movie.poster_path ? (
                   <img
-                    className="image"
+                    className="movie-list-image"
                     src={
                       "https://image.tmdb.org/t/p/original/" + movie.poster_path
                     }
@@ -40,6 +40,7 @@ export default function MovieList({ searchValue }) {
                   />
                 ) : (
                   <img
+                    className="movie-list-image"
                     src="https://media.istockphoto.com/id/1208666888/vector/marquee-and-curtain-background.jpg?s=612x612&w=0&k=20&c=VyNG1C6kfoOoH3W7cNNMmyNAlAiLuuqoQWTdDLAvA14="
                     alt={movie.title}
                   />

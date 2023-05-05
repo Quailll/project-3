@@ -5,7 +5,6 @@ export const MovieDetails = () => {
   const apiKey = "06d957d483298391d0b324df8b069c4c";
   const { id } = useParams();
   const [moviedet, setMoviedet] = useState({});
-  console.log(id);
 
   const fetchMovie = async (movieId) => {
     const data = await fetch(
@@ -20,14 +19,14 @@ export const MovieDetails = () => {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className="movie-detail-container">
+      <div className="movie-detail-img">
         <img
           src={"https://image.tmdb.org/t/p/original/" + moviedet.backdrop_path}
           alt={moviedet.original_title}
         />
       </div>
-      <div>
+      <div className="movie-detail-content">
         <h2>{moviedet.original_title}</h2>
         <h3>{moviedet.release_date}</h3>
       </div>
