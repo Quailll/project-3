@@ -10,6 +10,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Favorites from "./pages/Favorites";
+import Reviews from "./pages/Reviews";
+import WatchList from "./pages/watchList";
+import Movie from "./pages/Movie";
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import "./app.css";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -35,11 +43,20 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
+          <Header></Header>
+          <Navbar></Navbar>
+        </div>
+        <div id="page-container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/watchlist" element={<WatchList />} />
+            <Route path="/movie/:id" element={<Movie />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>

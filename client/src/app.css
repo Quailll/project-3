@@ -1,0 +1,132 @@
+#headerEl {
+  text-align: center;
+}
+
+
+.imgEl {
+  width: 10%; 
+}
+
+ul{
+  list-style: none;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+}
+
+/* trending movies */
+.trending-container {
+
+}
+
+.trending-card{
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  height: 400px;
+}
+
+.trending-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.trending-card::-webkit-scrollbar-track {
+  background: none;
+}
+
+.trending-card::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.trending-card::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.trending {
+  object-fit: contain;
+  height: 100%;
+  margin-right: 10px;
+  flex-shrink: 0;
+  width: 200px;
+}
+
+/* searched movies  */
+.movie-list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-list-image {
+  width: 400px;
+}
+
+/* movie details */
+.movie-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-detail-img {
+  width: 100%;
+  max-height: 1000px;
+  overflow: hidden;
+}
+
+.movie-detail-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-detail-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* login */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-btn {
+  padding: 10px 20px;
+  background-color: #0077c2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #005ea8;
+}
