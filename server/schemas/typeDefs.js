@@ -30,6 +30,7 @@ const typeDefs = gql`
     poster_path: String!
   }
 
+
   type Auth {
     token: ID!
     user: User
@@ -45,7 +46,9 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     createReview(title: String!, rating: Int!, body: String!): Review
     removeReview(reviewId: ID!): Review
+
     addFavorite(movieId: ID!): User!
+
 
   }
 `;

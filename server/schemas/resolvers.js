@@ -1,7 +1,8 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Review } = require("../models");
+const { User, Review, Movie } = require("../models");
 const { signToken } = require("../utils/auth.js");
 const mongoose = require("mongoose");
+const fetch = require("node-fetch");
 
 const resolvers = {
   Query: {
@@ -94,6 +95,7 @@ const resolvers = {
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${tmdbId}`;
       const response = await fetch(url);
       const movieData = await response.json();
+
 
       if (!movieData) {
         throw new Error(`No movie found with tmdbId ${tmdbId}`);
