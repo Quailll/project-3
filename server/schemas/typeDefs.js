@@ -39,6 +39,7 @@ const typeDefs = gql`
   type Query {
     me: User
     getMovie(title: String!): [Movie]
+    getReviews: [Review!]!
   }
 
   type Mutation {
@@ -46,7 +47,6 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     createReview(title: String!, rating: Int!, body: String!): Review
     removeReview(reviewId: ID!): Review
-
     addFavorite(movieId: ID!): User!
 
 

@@ -9,3 +9,21 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const GET_REVIEWS = gql`
+  query getReviews {
+    reviews {
+      _id
+      title
+      body
+      rating
+      author {
+        _id
+        name
+      }
+      createdAt
+    }
+  }
+`;
+
+

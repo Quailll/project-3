@@ -28,6 +28,14 @@ const resolvers = {
         poster_path: movie.poster_path,
       }));
     },
+    getReviews: async () => {
+      try {
+        const reviews = await Review.find().populate('author');
+        return reviews;
+      } catch (err) {
+        throw new Error('Failed to fetch reviews');
+      }
+    },
   },
   Mutation: {
     register: async (parent, { name, email, password }) => {
