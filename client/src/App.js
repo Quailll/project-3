@@ -17,6 +17,7 @@ import Movie from "./pages/Movie";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Logout from "./components/Logout";
 import "./app.css";
 
 const httpLink = createHttpLink({
@@ -45,6 +46,7 @@ function App() {
         <div>
           <Header></Header>
           <Navbar></Navbar>
+          <Logout></Logout>
         </div>
         <div id="page-container">
           <Routes>

@@ -1,55 +1,78 @@
-// import React, { useState } from "react";
-// import { from, useMutation } from "@apollo/client";
-// import { CREATE_REVIEW } from "../utils/mutations";
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { CREATE_REVIEW } from "../utils/mutations";
 
-// // import Auth from "../utils/auth";
+function ReviewForm() {
+  const [reviewData, setReviewData] = useState({
+    title: "",
+    body: "",
+    rating: 0,
+  });
 
-// const ReviewForm = () => {
-//   const [movieId, setMovieId] = useState("");
-//   const [reviewTitle, setReviewTitle] = useState("");
-//   const [reviewBody, setReviewBody] = useState("");
-//   const [reviewRating, setReviewRating] = useState("");
-//   const [characterCount, setCharacterCount] = useState(0);
+  const [createReview, { error }] = useMutation(CREATE_REVIEW);
 
-//   const [createReview, { error }] = useMutation(CREATE_REVIEW);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setReviewData({
+      ...reviewData,
+      [name]: value,
+    });
+  };
 
-//   const handleFormSubmit = async (event) => {
-//     event.preventDefault();
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await createReview({
+        variables: reviewData,
+      });
+      setReviewData({
+        title: "",
+        body: "",
+        rating: 0,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-//     try {
-//       const { data } = await createReview({
-//         variables: {
-//           movieId,
-//           reviewTitle,
-//           reviewBody,
-//           reviewRating,
-//           // ratingAuthor: Auth.getProfile().data.username;
-//         },
-//       });
+  return (
+    <div>
+      <h2>Review</h2>
+      <form onSubmit={handleFormSubmit}>
+        <div>
+          <label htmlFor="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={reviewData.title}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="body">Body:</label>
+          <textarea
+            id="body"
+            name="body"
+            value={reviewData.body}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="rating">Rating:</label>
+          <input
+            type="number"
+            id="rating"
+            name="rating"
+            value={reviewData.rating}
+            onChange={handleChange}
+            max={5}
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+}
 
-//       setMovieId("");
-//       setReviewTitle("");
-//       setReviewBody("");
-//       setReviewRating("");
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
-
-//   const handleChange = (event) => {
-//     const { name, value } = event.target;
-
-//     if (name === "reviewBody" && value.length <= 280) {
-//       setReviewBody(value);
-//       setCharacterCount(value.length);
-//     }
-//   };
-
-//   return (
-   
-//   );
-// };
-
-// export default ReviewForm;
-
-
+export default ReviewForm;
