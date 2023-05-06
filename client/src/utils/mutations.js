@@ -48,7 +48,7 @@ export const ADD_FAVORITE = gql`
     addFavorite(movieId: $movieId, title: $title, posterPath: $posterPath) {
       _id
       favorites {
-        movieId
+        tmdbId
         title
         posterPath
       }
