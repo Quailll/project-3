@@ -28,6 +28,7 @@ const resolvers = {
         poster_path: movie.poster_path,
       }));
     },
+    // to-do get reviews for a single user, make a uery to the database. In reviews model make sure we have assocications with movie
     getReviews: async () => {
       try {
         const reviews = await Review.find().populate('author');
@@ -59,22 +60,24 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    createReview: async (parent, { title, rating, body }, context) => {
+    createReview: async (parent, { title, rating, body, tmdb }, context) => {
       if (!context.user) {
         throw new AuthenticationError(
           "You need to be logged in to create a review!"
         );
       }
+      
       const review = await Review.create({
         title,
         body,
         rating,
         author: context.user._id,
+        tmdb
       });
-
-      await User.findByIdAndUpdate(context.user._id, {
+      const user = await User.findByIdAndUpdate(context.user._id, {
         $push: { reviews: review._id },
-      });
+      }); 
+     review.author = user
 
       return review;
     },

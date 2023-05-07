@@ -12,8 +12,8 @@ const Reviews = () => {
   if (error) {
     return <p>Error retrieving reviews.</p>;
   }
-
-  const { reviews } = data;
+  
+  const { getReviews: reviews } = data;
 
   return (
     <div>
@@ -24,7 +24,7 @@ const Reviews = () => {
           <p>{review.body}</p>
           <p>Rating: {review.rating}</p>
           <p>Author: {review.author.name}</p>
-          <p>Created at: {review.createdAt}</p>
+          
         </div>
       ))}
     </div>
