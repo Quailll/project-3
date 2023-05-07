@@ -12,7 +12,7 @@ export const QUERY_ME = gql`
 
 export const GET_REVIEWS = gql`
   query getReviews {
-    reviews {
+    getReviews {
       _id
       title
       body

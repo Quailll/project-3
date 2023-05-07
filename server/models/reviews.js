@@ -10,6 +10,7 @@ const reviewSchema = new Schema(
       ref: "User",
       required: true,
     },
+    tmdb: { type: String, required: true }
   },
   { timestamps: true }
 );

@@ -27,8 +27,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const CREATE_REVIEW = gql`
-  mutation createReview($title: String!, $body: String!, $rating: Int!) {
-    createReview(title: $title, body: $body, rating: $rating) {
+  mutation createReview($title: String!, $body: String!, $rating: Int!, $tmdb: String!) {
+    createReview(title: $title, body: $body, rating: $rating, tmdb: $tmdb) {
       _id
       title
       body
@@ -38,7 +38,7 @@ export const CREATE_REVIEW = gql`
         name
         email
       }
-      
+      tmdb
     }
   }
 `;

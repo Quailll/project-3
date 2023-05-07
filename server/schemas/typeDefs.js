@@ -2,10 +2,9 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
-    name: String
-    email: String
-    password: String
+    _id: ID!
+    name: String!
+    email: String!
     reviews: [Review]
     favorites: [Movie]
   }
@@ -16,6 +15,7 @@ const typeDefs = gql`
     body: String
     rating: Int
     author: User
+    tmdb: String
     
   }
 
@@ -46,7 +46,7 @@ const typeDefs = gql`
   type Mutation {
     register(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createReview(title: String!, rating: Int!, body: String!): Review
+    createReview(title: String!, rating: Int!, body: String!, tmdb: String!): Review
     removeReview(reviewId: ID!): Review
     addFavorite(movieId: ID!): User!
 

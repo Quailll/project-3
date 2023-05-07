@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_REVIEW } from "../utils/mutations";
+import { useParams } from "react-router-dom";
 
 function ReviewForm() {
+  const { id } = useParams();
   const [reviewData, setReviewData] = useState({
     title: "",
     body: "",
@@ -23,7 +25,11 @@ function ReviewForm() {
     event.preventDefault();
     try {
       await createReview({
-        variables: reviewData,
+        variables: {
+          ...reviewData,
+          rating: parseInt(reviewData.rating),
+          tmdb: id
+        },
       });
       setReviewData({
         title: "",
