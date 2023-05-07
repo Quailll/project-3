@@ -6,7 +6,11 @@ export const QUERY_ME = gql`
       _id
       name
       email
+      author {
+        _id
+      }
     }
+  
   }
 `;
 
