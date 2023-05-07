@@ -3,7 +3,7 @@ import React from 'react';
 export default function Footer () {
   return(
     <footer>
-      <p id='footers'>just a placeholder footer</p>
+      <p id='footers'>Created By: Kyle, Andy, Angel, Dyllan</p>
     </footer>
   );
 }
