@@ -31,9 +31,9 @@ function Register() {
     }
   };
   return (
-    <div className="register-form">
+    <div className="register-container">
       <h1>Register Page</h1>
-      <form onSubmit={handleFormSubmit}>
+      <form className="register-form" onSubmit={handleFormSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
@@ -65,7 +65,9 @@ function Register() {
           />
         </div>
         {error && <div className="error-message">{error.message}</div>}
-        <button type="submit">Register User</button>
+        <button className="login-btn" type="submit">
+          Register User
+        </button>
       </form>
     </div>
   );

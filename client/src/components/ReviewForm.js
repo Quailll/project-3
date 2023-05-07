@@ -36,11 +36,48 @@ function ReviewForm() {
   };
 
   return (
-    <div>
-      <h2>Review</h2>
+    //   <div className='card'>
+    //     <h2>Review</h2>
+    //     <form onSubmit={handleFormSubmit}>
+    //       <div>
+    //         <label htmlFor="title">Title:</label>
+    //         <input
+    //           type="text"
+    //           id="title"
+    //           name="title"
+    //           value={reviewData.title}
+    //           onChange={handleChange}
+    //         />
+    //       </div>
+    //       <div>
+    //         <label htmlFor="body">Body:</label>
+    //         <textarea
+    //           id="body"
+    //           name="body"
+    //           value={reviewData.body}
+    //           onChange={handleChange}
+    //         />
+    //       </div>
+    //       <div>
+    //         <label htmlFor="rating">Rating:</label>
+    //         <input
+    //           type="number"
+    //           id="rating"
+    //           name="rating"
+    //           value={reviewData.rating}
+    //           onChange={handleChange}
+    //           max={5}
+    //         />
+    //       </div>
+    //       <button type="submit">Submit</button>
+    //     </form>
+    //   </div>
+
+    <div class="review-form">
+      <h2>Write a Review</h2>
       <form onSubmit={handleFormSubmit}>
-        <div>
-          <label htmlFor="title">Title:</label>
+        <div class="form-field">
+          <label for="title">Title:</label>
           <input
             type="text"
             id="title"
@@ -49,17 +86,17 @@ function ReviewForm() {
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label htmlFor="body">Body:</label>
+        <div class="form-field">
+          <label for="body">Body:</label>
           <textarea
             id="body"
             name="body"
             value={reviewData.body}
             onChange={handleChange}
-          />
+          ></textarea>
         </div>
-        <div>
-          <label htmlFor="rating">Rating:</label>
+        <div class="form-field">
+          <label for="rating">Rating:</label>
           <input
             type="number"
             id="rating"
@@ -69,7 +106,9 @@ function ReviewForm() {
             max={5}
           />
         </div>
-        <button type="submit">Submit</button>
+        <div class="form-actions">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );

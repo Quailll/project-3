@@ -16,6 +16,7 @@ const typeDefs = gql`
     body: String
     rating: Int
     author: User
+    
   }
 
   type Movie {

@@ -32,7 +32,7 @@ export default function TrendingMovie() {
                   alt={movie.title}
                 />
               </a>
-              <p>{movie.title}</p>
+              <p className="movieListTitle">{movie.title}</p>
             </div>
           </div>
         ))}

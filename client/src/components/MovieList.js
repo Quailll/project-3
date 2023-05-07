@@ -46,7 +46,7 @@ export default function MovieList({ searchValue }) {
                   />
                 )}
               </a>
-              <p>{movie.title}</p>
+              <p className='movieListTitle'>{movie.title}</p>
             </div>
           </div>
         ))}
