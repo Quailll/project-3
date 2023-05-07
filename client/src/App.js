@@ -45,8 +45,10 @@ function App() {
       <Router>
         <div>
           <Header></Header>
+          <div className="navLog">
           <Navbar></Navbar>
           <Logout></Logout>
+          </div>
         </div>
         <div id="page-container">
           <Routes>

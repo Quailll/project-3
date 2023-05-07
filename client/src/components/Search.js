@@ -7,6 +7,7 @@ export default function Search({ searchValue, setSearchValue }) {
     setSearchValue(event.target.value);
   };
   return (
+    <div className='searchBar'>
     <Box
       component="form"
       sx={{
@@ -23,5 +24,6 @@ export default function Search({ searchValue, setSearchValue }) {
         onChange={handleChange}
       />
     </Box>
+    </div>
   );
 }

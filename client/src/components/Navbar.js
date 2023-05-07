@@ -8,7 +8,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
 let navArray = [
-  "Home",
   "Favorites",
   "Watch List",
   "Reviews",
@@ -61,8 +60,8 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <button>
-        {["Nav"].map((anchor) => (
+      <button className='navDec'>
+        {["Menu"].map((anchor) => (
           <React.Fragment key={anchor}>
             <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
             <Drawer

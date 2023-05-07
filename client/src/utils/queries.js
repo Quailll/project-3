@@ -21,7 +21,7 @@ export const GET_REVIEWS = gql`
         _id
         name
       }
-      createdAt
+      
     }
   }
 `;
