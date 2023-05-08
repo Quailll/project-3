@@ -5,7 +5,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -46,8 +46,8 @@ function App() {
         <div>
           <Header></Header>
           <div className="navLog">
-          <Navbar></Navbar>
-          <Logout></Logout>
+            <Navbar></Navbar>
+            <Logout></Logout>
           </div>
         </div>
         <div id="page-container">
