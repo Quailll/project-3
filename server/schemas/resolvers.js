@@ -31,10 +31,10 @@ const resolvers = {
     // to-do get reviews for a single user, make a uery to the database. In reviews model make sure we have assocications with movie
     getReviews: async () => {
       try {
-        const reviews = await Review.find().populate('author');
+        const reviews = await Review.find().populate("author");
         return reviews;
       } catch (err) {
-        throw new Error('Failed to fetch reviews');
+        throw new Error("Failed to fetch reviews");
       }
     },
   },
@@ -66,18 +66,18 @@ const resolvers = {
           "You need to be logged in to create a review!"
         );
       }
-      
+
       const review = await Review.create({
         title,
         body,
         rating,
         author: context.user._id,
-        tmdb
+        tmdb,
       });
       const user = await User.findByIdAndUpdate(context.user._id, {
         $push: { reviews: review._id },
-      }); 
-     review.author = user
+      });
+      review.author = user;
 
       return review;
     },
@@ -107,13 +107,29 @@ const resolvers = {
       const response = await fetch(url);
       const movieData = await response.json();
 
-
       if (!movieData) {
         throw new Error(`No movie found with tmdbId ${tmdbId}`);
       }
 
-      const { title, release_date, overview, poster_path, genre, director, runtime } = movieData;
-      const movie = await Movie.create({ tmdbId, title, releaseDate: release_date, overview, posterPath: poster_path, genre, director, runtime});
+      const {
+        title,
+        release_date,
+        overview,
+        poster_path,
+        genre,
+        director,
+        runtime,
+      } = movieData;
+      const movie = await Movie.create({
+        tmdbId,
+        title,
+        releaseDate: release_date,
+        overview,
+        posterPath: poster_path,
+        genre,
+        director,
+        runtime,
+      });
 
       return movie;
     },
@@ -126,8 +142,8 @@ const resolvers = {
     director: (parent) => parent.director,
     runtime: (parent) => parent.runtime,
     overview: (parent) => parent.overview,
-    poster_path: (parent) => parent.poster_path
-  }
+    poster_path: (parent) => parent.poster_path,
+  },
 };
 
 module.exports = resolvers;

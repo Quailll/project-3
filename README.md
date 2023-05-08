@@ -3,6 +3,8 @@
 ## Links 
 Github repo: https://github.com/Quailll/project-3
 
+Deployed Link: https://blooming-chamber-09680.herokuapp.com/
+
 
 Deployed website: 
 

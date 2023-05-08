@@ -16,7 +16,6 @@ const typeDefs = gql`
     rating: Int
     author: User
     tmdb: String
-    
   }
 
   type Movie {
@@ -30,7 +29,6 @@ const typeDefs = gql`
     overview: String!
     poster_path: String!
   }
-
 
   type Auth {
     token: ID!
@@ -46,11 +44,14 @@ const typeDefs = gql`
   type Mutation {
     register(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createReview(title: String!, rating: Int!, body: String!, tmdb: String!): Review
+    createReview(
+      title: String!
+      rating: Int!
+      body: String!
+      tmdb: String!
+    ): Review
     removeReview(reviewId: ID!): Review
     addFavorite(movieId: ID!): User!
-
-
   }
 `;
 
