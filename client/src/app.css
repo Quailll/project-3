@@ -17,6 +17,7 @@ header {
 }
 body {
   background-color: #9197AE;
+  min-height: 100vh;
 }
 .header-logo{
   width: 300px;
@@ -62,6 +63,7 @@ h1, h2, h3, h4, h5, h6, p {
     border: 1px solid #ccc;
     padding: 10px;
     background-color: #9197AE;
+    margin: 10px;
   }
   .form-field {
     display: grid;
@@ -193,6 +195,7 @@ li {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin: 10px
 }
 
 label {
@@ -239,10 +242,40 @@ input {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin: 10px;
 }
 
 .form-group{
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+.cardReviews {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  margin: 5px;
+}
+
+.review-look{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 10px;
+}
+
+footer{
+  text-align: center;
+  padding: 10px;
+  background-color: #273043;
+  
+  position: absolute;
+  width: 100%;
+  margin: 0;
+}
+
+.navLink{
+  text-decoration: none;
+  color: black;
 }

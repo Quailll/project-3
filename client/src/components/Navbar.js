@@ -8,8 +8,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { Link } from "react-router-dom";
 let navArray = [
-  "Favorites",
-  "Watch List",
   "Reviews",
   "Login",
   "Register",
@@ -42,7 +40,7 @@ export default function TemporaryDrawer() {
         {navArray.map((text, index) => {
           console.log(text);
           return (
-            <Link
+            <Link className="navLink"
               to={`/${text.split(" ").join("").toLocaleLowerCase()}`}
               key={text}
             >
