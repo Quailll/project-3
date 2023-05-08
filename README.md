@@ -34,19 +34,22 @@ As Users, when I visit the the website
 
 ## Screen-Shots
 
-![Home Page](image.path)
+<img src="images/home.png" width="600">
+<img src="images/search.png" width="600">
 
 When the user visit the website, they are greeted with the trending movies. When user search a movie, below the trending, the search will get populated by movies based off the value they have in search. The menu button is to open a drawer where they can access many different pages where they may register, login, and see their reviews.
 
-![Movie Page](image.path)
+<img src="images/reviewpage.png" width='600'>
+<img src="images/reviews.png" width='600'>
 
 When users click on a movie, they are taken to a page where they can see that specific movie's detail. Right below the movie's detail, users may leave reviews. 
 
-![Register Page](image.path) 
+<img src="images/signup.png" width="600">
 
 Users may click on menu to open up a drawer to where they can click to register for an account. 
 
-![Login Page](image.path)
+<img src="images/login.png" width="600">
+<img src="images/logoutsuccess.png" width="600">
 
 After creating an account, users login here. 
 
